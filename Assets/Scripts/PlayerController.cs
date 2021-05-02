@@ -62,16 +62,32 @@ public class PlayerController : MonoBehaviour
         currentCheckpointIndex++;
     }
 
-    IEnumerator WaitDeath()
+    public IEnumerator WaitDeath()
     {
         canMove = false;
         movement = Vector2.zero;
         camera.m_Lens.FieldOfView = 50;
         yield return new WaitForSeconds(0.92f);
-        transform.position = spawnpointsLvl1[currentCheckpointIndex].transform.position;
-        camera.m_Lens.FieldOfView = 70;
+        transform.position = spawnpointsLvl1[currentCheckpointIndex].transform.position;        
         yield return new WaitForSeconds(1.83f);
+        camera.m_Lens.FieldOfView = 70;
 
         canMove = true;
     }
+
+    
+    public IEnumerator WaitVent(Transform pos)
+    {
+        animator.SetTrigger("death");
+        canMove = false;
+        movement = Vector2.zero;
+        camera.m_Lens.FieldOfView = 50;
+        yield return new WaitForSeconds(0.92f);
+        transform.position = pos.position;       
+        yield return new WaitForSeconds(1.83f);
+        camera.m_Lens.FieldOfView = 70;
+        canMove = true;
+    }
+
+
 }
