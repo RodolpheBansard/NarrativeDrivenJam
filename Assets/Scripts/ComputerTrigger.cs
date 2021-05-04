@@ -7,6 +7,8 @@ public class ComputerTrigger : MonoBehaviour
 
     public SpriteRenderer sprite;
     public GameObject computerScreen;
+    public bool isDoor = false;
+    public Animator doorAnimator;
 
     private void Start()
     {
@@ -35,7 +37,15 @@ public class ComputerTrigger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && sprite.isVisible)
         {
-            computerScreen.SetActive(!computerScreen.activeInHierarchy);
+            if (isDoor & FindObjectOfType<PlayerController>().hasCard)
+            {
+                print("open door");
+            }
+            else
+            {
+                computerScreen.SetActive(!computerScreen.activeInHierarchy);
+            }
+            
         }
     }
 }

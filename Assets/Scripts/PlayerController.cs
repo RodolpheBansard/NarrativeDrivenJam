@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove = false;
     public bool hasTnt = false;
+    public bool hasCard = false;
 
 
 

@@ -10,6 +10,8 @@ public class PorteBoum : MonoBehaviour
     public GameObject porteVfx;
     public GameObject tntVfx;
 
+    public Transform porteVfxPos;
+
     private void Start()
     {
         sprite.enabled = false;
@@ -36,8 +38,28 @@ public class PorteBoum : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && sprite.isVisible && FindObjectOfType<PlayerController>().GetHasTnt())
         {
-            tnt.SetActive(true);
+            
+            StartCoroutine(ExplosionPorte());
 
+            
         }
+    }
+
+    IEnumerator ExplosionPorte()
+    {
+        tnt.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        sprite.enabled = false;
+
+        Instantiate(tntVfx, tnt.transform);
+        Instantiate(porteVfx, porteVfxPos);
+
+        tnt.GetComponent<SpriteRenderer>().enabled = false;
+
+        
     }
 }
