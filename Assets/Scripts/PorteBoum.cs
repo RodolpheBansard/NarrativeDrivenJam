@@ -5,6 +5,10 @@ using UnityEngine;
 public class PorteBoum : MonoBehaviour
 {
     public SpriteRenderer sprite;
+    public GameObject tnt;
+
+    public GameObject porteVfx;
+    public GameObject tntVfx;
 
     private void Start()
     {
@@ -32,7 +36,8 @@ public class PorteBoum : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && sprite.isVisible && FindObjectOfType<PlayerController>().GetHasTnt())
         {
-            print("boum");
+            tnt.SetActive(true);
+
         }
     }
 }

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
 
     private bool canMove = false;
-    private bool hasTnt = false;
+    public bool hasTnt = false;
 
 
 
