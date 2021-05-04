@@ -39,7 +39,7 @@ public class ComputerTrigger : MonoBehaviour
         {
             if (isDoor & FindObjectOfType<PlayerController>().hasCard)
             {
-                print("open door");
+                doorAnimator.SetTrigger("open");
             }
             else
             {
