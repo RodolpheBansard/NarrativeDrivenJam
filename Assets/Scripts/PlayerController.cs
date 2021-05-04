@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
 
     private bool canMove = false;
+    private bool hasTnt = false;
 
 
 
@@ -87,6 +88,17 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1.83f);
         camera.m_Lens.FieldOfView = 70;
         canMove = true;
+    }
+
+
+    public void SetHasTnt()
+    {
+        hasTnt = true;
+    }
+
+    public bool GetHasTnt()
+    {
+        return hasTnt;
     }
 
 

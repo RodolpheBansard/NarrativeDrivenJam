@@ -9,6 +9,8 @@ public class Digicode : MonoBehaviour
     private string solution = "9372";
 
     public TMP_Text displayText;
+
+    public List<GameObject> placards;
     
 
     private void Start()
@@ -30,15 +32,13 @@ public class Digicode : MonoBehaviour
         {
             displayText.color = Color.green;
             yield return new WaitForSeconds(2);
+            foreach(GameObject placard in placards)
+            {
+                placard.SetActive(true);
+            }
             gameObject.SetActive(false);
-        }
-        else if (displayText.text == "7239")
-        {
-            displayText.color = Color.red;
-            yield return new WaitForSeconds(2);
-            displayText.text = "";
-            displayText.color = Color.white;
-        }
+
+        }        
         else
         {
             displayText.color = Color.red; 
