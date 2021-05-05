@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
 
     private bool canMove = false;
-    private bool isRunning = true;
+    private bool isRunning = false;
 
     public bool hasTnt = false;
     public bool hasCard = false;
@@ -129,14 +129,14 @@ public class PlayerController : MonoBehaviour
         return hasTnt;
     }
 
-    public void SetIsRunning(bool isRunning)
+    public void SetIsRunning()
     {
-        this.isRunning = isRunning;
-        rb.gravityScale = 5;
+        this.isRunning = true;
     }
 
     public void StopPlayer()
     {
+        movement = Vector2.zero;
         canMove = false;
     }
     public void UnlockPlayer()

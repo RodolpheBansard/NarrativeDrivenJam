@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class TransitionLVL3 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public PlayerController player;
+    public Rigidbody2D rbPlayer;
+    public BoxCollider2D hitDetectionBox;
+
+    public GameObject level2;
+    public GameObject level3;
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.GetComponent<PlayerController>() != null)
+        {
+            rbPlayer.gravityScale = 100;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (hitDetectionBox.IsTouchingLayers(LayerMask.GetMask("ground")))
+        {
+            player.SetIsRunning();
+        }
     }
 }

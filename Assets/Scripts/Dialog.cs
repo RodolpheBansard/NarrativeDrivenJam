@@ -2,47 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Dialog : MonoBehaviour
 {
-    public PlayerMovement player;
-    public GameObject gameCam;
-    public GameObject dialogCam;
+    public PlayerController player;
     [SerializeField] float delayWriting;
     [SerializeField] float delayDeleting;
     [SerializeField] float delaybeforeDeleting;
     [SerializeField] float delaybeforeWriting;
     [TextArea(10,10)][SerializeField] List<string> story;
 
-    public Text playerText;
-    public Text otherText;
-    public GameObject playerImage;
-    public GameObject otherImage;
-    public GameObject emotionImage;
-
-    public List<Texture> emotionsSprites;
-    public List<AudioClip> emotionsSound;
-
-    public AudioClip playerSound;
-    public AudioClip thanksSound;
-
-    public bool isLastDialog;
-    public bool imageToActivate;
-    public List<GameObject> imagesToActivate;
-    
+    public TMP_Text narrator1Text = null;
+    public TMP_Text narrator2Text = null;
+    public TMP_Text narrator3Text = null;
 
     
     void Start()
     {
-
-        dialogCam.SetActive(true);
-        gameCam.SetActive(false);
-
-        playerText.text = "";
-        otherText.text = "";
-        playerImage.SetActive(false);
-        otherImage.SetActive(false);
-        emotionImage.SetActive(false);
+        if(narrator1Text != null)
+        {
+            narrator1Text.text = "";
+        }
+        if (narrator2Text != null)
+        {
+            narrator2Text.text = "";
+        }
+        if (narrator3Text != null)
+        {
+            narrator3Text.text = "";
+        }
 
         StartCoroutine(WriteDialog());
     }
@@ -51,75 +40,43 @@ public class Dialog : MonoBehaviour
 
     IEnumerator WriteDialog()
     {
+        player.StopPlayer();
         int j = 0;
         while(j < story.Count)
         {
             int index = (int)char.GetNumericValue(story[j][0]);
             if (index == 1)
             {
-                playerImage.SetActive(true);
-                StartCoroutine(WriteText(story[j],playerText));
-                if((int)char.GetNumericValue(story[j][1]) == 1)
-                {
-                    AudioSource.PlayClipAtPoint(thanksSound, Camera.main.transform.position + new Vector3(0, 0, 0), 1);
-                }
-                else
-                {
-                    AudioSource.PlayClipAtPoint(playerSound, Camera.main.transform.position + new Vector3(0, 0, 0), 1);
-                }                
+                StartCoroutine(WriteText(story[j], narrator1Text));                           
                 yield return new WaitForSeconds(story[j].Length * delayWriting + delaybeforeDeleting);
-                //StartCoroutine(DeleteText(story[j],playerText));
+                //StartCoroutine(DeleteText(story[j], narrator1Text));
                 yield return new WaitForSeconds(story[j].Length * delayDeleting + delaybeforeWriting);
-                playerText.text = "";
+                narrator1Text.text = "";
                 j++;
-                
+            }
+            else if(index == 2)
+            {
+                StartCoroutine(WriteText(story[j], narrator2Text));
+                yield return new WaitForSeconds(story[j].Length * delayWriting + delaybeforeDeleting);
+                //StartCoroutine(DeleteText(story[j], narrator2Text));
+                yield return new WaitForSeconds(story[j].Length * delayDeleting + delaybeforeWriting);
+                narrator2Text.text = "";
+                j++;
             }
             else
             {
-                otherImage.SetActive(true);
-                emotionImage.SetActive(true);
-                if(index == 5)
-                {
-                    emotionImage.GetComponent<RawImage>().texture = emotionsSprites[2];
-                    AudioSource.PlayClipAtPoint(emotionsSound[2], Camera.main.transform.position + new Vector3(0, 0, 0), 1);
-                    foreach(GameObject o in imagesToActivate)
-                    {
-                        o.SetActive(true);
-                    }
-                }
-                else
-                {
-                    emotionImage.GetComponent<RawImage>().texture = emotionsSprites[index - 2];
-                    AudioSource.PlayClipAtPoint(emotionsSound[index - 2], Camera.main.transform.position + new Vector3(0, 0, 0), 1);
-                }                
-                StartCoroutine(WriteText(story[j],otherText));
+                StartCoroutine(WriteText(story[j], narrator3Text));
                 yield return new WaitForSeconds(story[j].Length * delayWriting + delaybeforeDeleting);
-                //StartCoroutine(DeleteText(story[j],otherText));
+                //StartCoroutine(DeleteText(story[j], narrator3Text));
                 yield return new WaitForSeconds(story[j].Length * delayDeleting + delaybeforeWriting);
-                otherText.text = "";
+                narrator3Text.text = "";
                 j++;
-                
             }
         }
-        foreach (GameObject o in imagesToActivate)
-        {
-            o.SetActive(false);
-        }
-        otherImage.SetActive(false);
-        playerImage.SetActive(false);
-        emotionImage.SetActive(false);
-        player.StopPlayer(false);
-
-        dialogCam.SetActive(false);
-        gameCam.SetActive(true);
-
-        if (isLastDialog)
-        {
-            FindObjectOfType<Scene>().LoadMenu();
-        }
+        player.UnlockPlayer();
     }
 
-    IEnumerator WriteText(string message, Text text)
+    IEnumerator WriteText(string message, TMP_Text text)
     {
         string newMessage = "";
         int i;
@@ -142,7 +99,7 @@ public class Dialog : MonoBehaviour
         }
     }
 
-    IEnumerator DeleteText(string message, Text text)
+    IEnumerator DeleteText(string message, TMP_Text text)
     {
         int x = message.Length;
 
@@ -167,13 +124,7 @@ public class Dialog : MonoBehaviour
     }
     public void Skip()
     {
-        otherImage.SetActive(false);
-        playerImage.SetActive(false);
-        emotionImage.SetActive(false);
-        player.StopPlayer(false);
-
-        dialogCam.SetActive(false);
-        gameCam.SetActive(true);
+        player.UnlockPlayer();
         Destroy(gameObject);
     }
 }

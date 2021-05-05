@@ -9,6 +9,9 @@ public class ComputerTrigger : MonoBehaviour
     public GameObject computerScreen;
     public bool isDoor = false;
     public Animator doorAnimator;
+    public Dialog revealRobotDialog;
+
+    public GameObject transitionLevel3;
 
     private void Start()
     {
@@ -39,7 +42,7 @@ public class ComputerTrigger : MonoBehaviour
         {
             if (isDoor & FindObjectOfType<PlayerController>().hasCard)
             {
-                doorAnimator.SetTrigger("open");
+                StartCoroutine(RevealRobot());
             }
             else
             {
@@ -47,5 +50,13 @@ public class ComputerTrigger : MonoBehaviour
             }
             
         }
+    }
+
+    IEnumerator RevealRobot()
+    {
+        revealRobotDialog.enabled = true;
+        yield return new WaitForSeconds(4);
+        doorAnimator.SetTrigger("open");
+        transitionLevel3.SetActive(true);
     }
 }

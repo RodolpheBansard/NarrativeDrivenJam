@@ -6,6 +6,8 @@ using TMPro;
 
 public class Digicode : MonoBehaviour
 {
+
+    public Dialog codeDialog;
     private string solution = "9372";
 
     public TMP_Text displayText;
@@ -31,12 +33,14 @@ public class Digicode : MonoBehaviour
         if (displayText.text == solution)
         {
             displayText.color = Color.green;
-            yield return new WaitForSeconds(2);
+            codeDialog.enabled = true;
+            yield return new WaitForSeconds(7);
             foreach(GameObject placard in placards)
             {
                 placard.SetActive(true);
             }
             gameObject.SetActive(false);
+
 
         }        
         else

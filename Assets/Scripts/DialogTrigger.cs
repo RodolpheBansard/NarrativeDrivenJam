@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraTrigger : MonoBehaviour
+public class DialogTrigger : MonoBehaviour
 {
-    public PlayerController player;
+    public Dialog dialog;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.GetComponent<PlayerController>() != null)
         {
-            player.Detected();
+            dialog.enabled = true;
         }
-        
     }
 }
