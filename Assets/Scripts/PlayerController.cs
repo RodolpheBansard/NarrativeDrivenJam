@@ -135,5 +135,14 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 5;
     }
 
+    public void StopPlayer()
+    {
+        canMove = false;
+    }
+    public void UnlockPlayer()
+    {
+        canMove = true;
+    }
+
 
 }
