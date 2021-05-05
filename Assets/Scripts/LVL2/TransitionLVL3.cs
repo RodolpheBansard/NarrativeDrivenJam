@@ -17,6 +17,7 @@ public class TransitionLVL3 : MonoBehaviour
     {
         if(collision.GetComponent<PlayerController>() != null)
         {
+            level3.SetActive(true);
             rbPlayer.gravityScale = 100;
         }
     }
@@ -26,6 +27,7 @@ public class TransitionLVL3 : MonoBehaviour
         if (hitDetectionBox.IsTouchingLayers(LayerMask.GetMask("ground")))
         {
             player.SetIsRunning();
+            level2.SetActive(false);
         }
     }
 }
