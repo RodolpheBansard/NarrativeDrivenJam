@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
 
     private bool canMove = false;
-    private bool isRunning = false;
+    private bool isRunning = true;
 
     public bool hasTnt = false;
     public bool hasCard = false;
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             if (hitDetectionBox.IsTouchingLayers(LayerMask.GetMask("ground")))
             {
                 animator.SetBool("isJumping", false);
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("isSliding"))
                 {
                     animator.SetBool("isJumping", true);
                     rb.velocity = new Vector2(0, jumpSpeed);
@@ -52,6 +52,19 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetBool("isJumping", true);
             }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                hitDetectionBox.size = new Vector2(1,0.7f);
+                hitDetectionBox.offset = new Vector2(0,-0.4f);
+                animator.SetBool("isSliding", true);
+            }
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+                hitDetectionBox.size = new Vector2(1, 1.5f);
+                hitDetectionBox.offset = Vector2.zero;
+                animator.SetBool("isSliding", false);
+            }
+
         }
 
     }

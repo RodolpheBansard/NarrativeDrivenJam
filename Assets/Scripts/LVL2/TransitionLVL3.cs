@@ -26,6 +26,7 @@ public class TransitionLVL3 : MonoBehaviour
     {
         if (hitDetectionBox.IsTouchingLayers(LayerMask.GetMask("ground")))
         {
+            rbPlayer.gravityScale = 5;
             player.SetIsRunning();
             level2.SetActive(false);
         }

@@ -11,6 +11,8 @@ public class LinearCamera : MonoBehaviour
     private int currentIndex = 0;
     private bool launch = false;
 
+    private int compteur = 0;
+
 
     void Start()
     {
@@ -28,6 +30,11 @@ public class LinearCamera : MonoBehaviour
 
             if (transform.position == waypoints[currentIndex].position)
             {
+                compteur++;
+                if(compteur ==  waypoints.Count && gameObject.tag == "runner")
+                {
+                    gameObject.GetComponent<LinearCamera>().enabled = false;
+                }
                 currentIndex++;
                 if (currentIndex == waypoints.Count)
                 {
