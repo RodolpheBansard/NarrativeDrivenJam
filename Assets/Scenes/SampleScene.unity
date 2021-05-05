@@ -3507,8 +3507,8 @@ GameObject:
   - component: {fileID: 330248300}
   - component: {fileID: 330248302}
   - component: {fileID: 330248301}
-  m_Layer: 0
-  m_Name: fondbas
+  m_Layer: 10
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5565,11 +5565,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 1.5512434
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 30
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -5594,8 +5594,10 @@ MonoBehaviour:
   - {fileID: 2102571798}
   camera: {fileID: 1297990869}
   moveSpeed: 200
+  jumpSpeed: 15
   rb: {fileID: 480991187}
   animator: {fileID: 480991183}
+  hitDetectionBox: {fileID: 1823485962}
   hasTnt: 1
   hasCard: 0
 --- !u!1 &491837364

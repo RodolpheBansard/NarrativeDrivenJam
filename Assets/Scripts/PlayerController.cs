@@ -10,13 +10,17 @@ public class PlayerController : MonoBehaviour
     private int currentCheckpointIndex = 0;
 
     public float moveSpeed = 1;
+    public float jumpSpeed;
 
     public Rigidbody2D rb;
     public Animator animator;
+    public BoxCollider2D hitDetectionBox;
 
     private Vector2 movement;
 
     private bool canMove = false;
+    private bool isRunning = true;
+
     public bool hasTnt = false;
     public bool hasCard = false;
 
@@ -24,27 +28,50 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
+        if (canMove && !isRunning)
         {
+            animator.SetBool("isRunning", false);
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
         }
-       
+
+        if (isRunning)
+        {
+            animator.SetBool("isRunning", true);
+            if (hitDetectionBox.IsTouchingLayers(LayerMask.GetMask("ground")))
+            {
+                animator.SetBool("isJumping", false);
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    animator.SetBool("isJumping", true);
+                    rb.velocity = new Vector2(0, jumpSpeed);
+                }
+                
+            }
+            else
+            {
+                animator.SetBool("isJumping", true);
+            }
+        }
 
     }
 
     private void FixedUpdate()
     {
-        if(movement == Vector2.zero)
+        if (!isRunning)
         {
-            animator.SetBool("isWalking", false);
-        }
-        else
-        {
-            animator.SetBool("isWalking", true);
-        }
+            if (movement == Vector2.zero)
+            {
+                animator.SetBool("isWalking", false);
+            }
+            else
+            {
+                animator.SetBool("isWalking", true);
+            }
 
-        rb.velocity = movement*moveSpeed*Time.fixedDeltaTime;
+            rb.velocity = movement * moveSpeed * Time.fixedDeltaTime;
+        }
+        
     }
 
     public void drawingFinished()
@@ -100,6 +127,12 @@ public class PlayerController : MonoBehaviour
     public bool GetHasTnt()
     {
         return hasTnt;
+    }
+
+    public void SetIsRunning(bool isRunning)
+    {
+        this.isRunning = isRunning;
+        rb.gravityScale = 5;
     }
 
 
