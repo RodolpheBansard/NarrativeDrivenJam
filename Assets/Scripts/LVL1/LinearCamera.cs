@@ -38,6 +38,11 @@ public class LinearCamera : MonoBehaviour
                 currentIndex++;
                 if (currentIndex == waypoints.Count)
                 {
+                    if(gameObject.tag == "GroupRunner")
+                    {
+                        gameObject.GetComponent<LinearCamera>().enabled = false;
+                    }
+
                     currentIndex = 0;
                 }
 

@@ -122,6 +122,17 @@ public class Dialog : MonoBehaviour
             }
         }
     }
+
+    public float getLength()
+    {
+        float length = 0;
+        foreach(string line in story)
+        {
+            length += line.Length * delayWriting + delaybeforeDeleting + line.Length * delayDeleting + delaybeforeWriting;
+        }
+        return length;
+    }
+
     public void Skip()
     {
         player.UnlockPlayer();
