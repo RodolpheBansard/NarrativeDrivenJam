@@ -10,6 +10,7 @@ public class RoomTrigger : MonoBehaviour
 
     public GameObject level1;
     public Animator level1Animator;
+    public Animator exitDoorAnimator;
 
     public GameObject level2;
 
@@ -24,6 +25,10 @@ public class RoomTrigger : MonoBehaviour
             }
             nextRoom.SetActive(true);
             player.UpdateCheckpoint();
+            if(player.GetCurrentCheckpointIndex() == 3)
+            {
+                exitDoorAnimator.SetTrigger("disapear");
+            }
             collider.enabled = false;
         }
         

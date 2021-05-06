@@ -8,6 +8,10 @@ public class Card : MonoBehaviour
     public List<GameObject> items;
     public GameObject card;
 
+    public AudioClip getItemSound;
+
+    private int compteur = 0;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.GetComponent<PlayerController>() != null)
@@ -19,6 +23,8 @@ public class Card : MonoBehaviour
             card.SetActive(true);
             collision.GetComponent<PlayerController>().hasCard = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            FindObjectOfType<AudioSource>().PlayOneShot(getItemSound, .2f);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

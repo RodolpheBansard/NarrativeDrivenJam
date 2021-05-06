@@ -105,6 +105,10 @@ public class PlayerController : MonoBehaviour
     {
         currentCheckpointIndex++;
     }
+    public int GetCurrentCheckpointIndex()
+    {
+        return currentCheckpointIndex;
+    }
 
     public IEnumerator WaitDeath()
     {

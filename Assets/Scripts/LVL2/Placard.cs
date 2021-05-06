@@ -17,6 +17,9 @@ public class Placard : MonoBehaviour
     public Dialog tntDialog;
     public Dialog codeDialog;
 
+    public AudioClip openSound;
+    public AudioClip getItemSound;
+
     public bool opened = false;
 
     private void Start()
@@ -48,6 +51,7 @@ public class Placard : MonoBehaviour
             ResetDialog();
             opened = true;
             animator.SetTrigger("openDoor");
+            FindObjectOfType<AudioSource>().PlayOneShot(openSound, .35f);
             sprite.gameObject.SetActive(false);
             int compteur = 0;
             foreach(Placard placard in FindObjectsOfType<Placard>())
@@ -59,8 +63,8 @@ public class Placard : MonoBehaviour
             }
             if(compteur == 1)
             {
+                StartCoroutine(FindItem(item_peluche));
                 codeDialog.gameObject.SetActive(false);
-                item_peluche.SetActive(true);
                 pelucheDialog.enabled = true;
             }
             if (compteur == 2)
@@ -70,8 +74,8 @@ public class Placard : MonoBehaviour
             }
             if (compteur == 3)
             {
+                StartCoroutine(FindItem(item_socks));
                 placardVideDialog.gameObject.SetActive(false);
-                item_socks.SetActive(true);
                 chaussetteDialog.enabled = true;
             }
             if (compteur == 4)
@@ -81,9 +85,9 @@ public class Placard : MonoBehaviour
             }
             if (compteur == 5)
             {
+                StartCoroutine(FindItem(item_tnt));
                 placardVideDialog2.gameObject.SetActive(false);
                 tntDialog.enabled = true;
-                item_tnt.SetActive(true);
                 FindObjectOfType<PlayerController>().SetHasTnt();
             }
 
@@ -96,5 +100,12 @@ public class Placard : MonoBehaviour
         chaussetteDialog.enabled = false;
         pelucheDialog.enabled = false;
         tntDialog.enabled = false;
+    }
+
+    IEnumerator FindItem(GameObject item)
+    {
+        yield return new WaitForSeconds(.3f);
+        FindObjectOfType<AudioSource>().PlayOneShot(getItemSound, .2f);
+        item.SetActive(true);
     }
 }

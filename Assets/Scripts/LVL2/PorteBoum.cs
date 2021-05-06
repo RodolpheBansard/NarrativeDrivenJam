@@ -12,6 +12,8 @@ public class PorteBoum : MonoBehaviour
 
     public Transform porteVfxPos;
 
+    public AudioClip explosionSound;
+
     private void Start()
     {
         sprite.enabled = false;
@@ -55,6 +57,7 @@ public class PorteBoum : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         sprite.enabled = false;
 
+        FindObjectOfType<AudioSource>().PlayOneShot(explosionSound, .5f);
         Instantiate(tntVfx, tnt.transform);
         Instantiate(porteVfx, porteVfxPos);
 

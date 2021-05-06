@@ -1087,6 +1087,8 @@ MonoBehaviour:
   doorAnimator: {fileID: 57561119}
   revealRobotDialog: {fileID: 710598084}
   transitionLevel3: {fileID: 356170603}
+  openDoorSound: {fileID: 8300000, guid: fdd26108d72ba104c8e0f2db374d0e3f, type: 3}
+  robotRoarSound: {fileID: 8300000, guid: 1c5603370698e194d857b4dc9b60684a, type: 3}
 --- !u!61 &57561118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4053,6 +4055,8 @@ GameObject:
   m_Component:
   - component: {fileID: 215527267}
   - component: {fileID: 215527268}
+  - component: {fileID: 215527270}
+  - component: {fileID: 215527269}
   m_Layer: 0
   m_Name: mur-laser
   m_TagString: Untagged
@@ -4070,7 +4074,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 396983635}
   m_Father: {fileID: 843839848}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4124,6 +4129,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &215527269
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215527266}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 38.698147, y: 5.783718}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 100, y: 100}
+    newSize: {x: 100, y: 100}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.6372757, y: 6.782524}
+  m_EdgeRadius: 0
+--- !u!114 &215527270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215527266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b830cfa26e10d24fbbe274afb1ae5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 480991188}
 --- !u!1 &219178103
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,6 +4268,7 @@ MonoBehaviour:
   - {fileID: 947759525}
   - {fileID: 1161181222}
   card: {fileID: 813065297}
+  getItemSound: {fileID: 8300000, guid: 48397b98bccc9db45b29fbce26a36a27, type: 3}
 --- !u!61 &219178107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6881,6 +6926,8 @@ MonoBehaviour:
   pelucheDialog: {fileID: 1419301864}
   tntDialog: {fileID: 1569479218}
   codeDialog: {fileID: 975411281}
+  openSound: {fileID: 8300000, guid: 4b1f441019da59a42a82ccdd07c07c5e, type: 3}
+  getItemSound: {fileID: 8300000, guid: 48397b98bccc9db45b29fbce26a36a27, type: 3}
   opened: 0
 --- !u!60 &360810712
 PolygonCollider2D:
@@ -7818,6 +7865,36 @@ MonoBehaviour:
   narrator1Text: {fileID: 2128612889}
   narrator2Text: {fileID: 1641960904}
   narrator3Text: {fileID: 0}
+--- !u!1 &396983634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396983635}
+  m_Layer: 0
+  m_Name: checkpoint laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &396983635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396983634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.52, y: 7.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 215527267}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &400128574
 GameObject:
   m_ObjectHideFlags: 0
@@ -8964,7 +9041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480991182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.46, y: -11.68, z: 0}
+  m_LocalPosition: {x: 19.4, y: 20.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1823485961}
@@ -9035,6 +9112,7 @@ MonoBehaviour:
   - {fileID: 1555602147}
   - {fileID: 1429196458}
   - {fileID: 2102571798}
+  - {fileID: 396983634}
   camera: {fileID: 1297990869}
   moveSpeed: 200
   jumpSpeed: 18
@@ -9042,7 +9120,7 @@ MonoBehaviour:
   animator: {fileID: 480991183}
   hitDetectionBox: {fileID: 1823485962}
   isRunning: 0
-  hasTnt: 0
+  hasTnt: 1
   hasCard: 0
   ventAudio: {fileID: 8300000, guid: b59574a616383cd4cb23c51f7985c6c2, type: 3}
 --- !u!1 &481818194
@@ -10790,7 +10868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &589204866
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11555,7 +11633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &609688884
 Transform:
   m_ObjectHideFlags: 0
@@ -11574,6 +11652,7 @@ Transform:
   - {fileID: 1247202609}
   - {fileID: 156736018}
   - {fileID: 381705419}
+  - {fileID: 1492746327}
   m_Father: {fileID: 2070082224}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11670,6 +11749,7 @@ MonoBehaviour:
   collider: {fileID: 609688886}
   level1: {fileID: 0}
   level1Animator: {fileID: 0}
+  exitDoorAnimator: {fileID: 1492746328}
   level2: {fileID: 0}
 --- !u!95 &609688888
 Animator:
@@ -12631,7 +12711,7 @@ MonoBehaviour:
   player: {fileID: 480991188}
   delayWriting: 0.03
   delayDeleting: 0.005
-  delaybeforeDeleting: 2
+  delaybeforeDeleting: 1
   delaybeforeWriting: 0.5
   story:
   - 1Agent R used the card key to open the last door standing between him and his
@@ -14836,6 +14916,8 @@ MonoBehaviour:
   doorAnimator: {fileID: 0}
   revealRobotDialog: {fileID: 0}
   transitionLevel3: {fileID: 0}
+  openDoorSound: {fileID: 0}
+  robotRoarSound: {fileID: 0}
 --- !u!1 &843839847
 GameObject:
   m_ObjectHideFlags: 0
@@ -16628,7 +16710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968411798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.46, y: -9.397324, z: -10}
+  m_LocalPosition: {x: 19.4, y: 22.482677, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1879526158}
@@ -16768,7 +16850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &972640381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16869,6 +16951,9 @@ MonoBehaviour:
   - {fileID: 1197948818}
   - {fileID: 2138180046}
   - {fileID: 1879237511}
+  buttonSound: {fileID: 8300000, guid: 52d45c43f0ff3dd44803edf4e4fba13f, type: 3}
+  rightCodeSound: {fileID: 8300000, guid: 1a7d4b1b22445ad44b1e2c4370ce46a2, type: 3}
+  wrongCodeSound: {fileID: 8300000, guid: 3f7cbd628d8d4004a98144ff7b151667, type: 3}
 --- !u!1 &975411279
 GameObject:
   m_ObjectHideFlags: 0
@@ -20916,7 +21001,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -55.010906, y: -40.077614}
+  m_Offset: {x: -55.010906, y: -40.06588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -20927,7 +21012,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.6370163, y: 2.5213356}
+  m_Size: {x: 4.6370163, y: 2.544796}
   m_EdgeRadius: 0
 --- !u!114 &1195452026
 MonoBehaviour:
@@ -21076,6 +21161,8 @@ MonoBehaviour:
   pelucheDialog: {fileID: 1419301864}
   tntDialog: {fileID: 1569479218}
   codeDialog: {fileID: 975411281}
+  openSound: {fileID: 8300000, guid: 4b1f441019da59a42a82ccdd07c07c5e, type: 3}
+  getItemSound: {fileID: 8300000, guid: 48397b98bccc9db45b29fbce26a36a27, type: 3}
   opened: 0
 --- !u!60 &1197948823
 PolygonCollider2D:
@@ -26441,7 +26528,110 @@ MonoBehaviour:
   pelucheDialog: {fileID: 1419301864}
   tntDialog: {fileID: 1569479218}
   codeDialog: {fileID: 975411281}
+  openSound: {fileID: 8300000, guid: 4b1f441019da59a42a82ccdd07c07c5e, type: 3}
+  getItemSound: {fileID: 8300000, guid: 48397b98bccc9db45b29fbce26a36a27, type: 3}
   opened: 0
+--- !u!1 &1492746326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1492746327}
+  - component: {fileID: 1492746329}
+  - component: {fileID: 1492746328}
+  m_Layer: 0
+  m_Name: porte1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1492746327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492746326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.79, y: 17.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 609688884}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1492746328
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492746326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d87b3672fcede7418c5f31c3a9a7733, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &1492746329
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492746326}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1026781171
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 8078f942f3f3dda46b8708a12bc70afe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.2, y: 5.2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1495735190
 GameObject:
   m_ObjectHideFlags: 0
@@ -26821,6 +27011,7 @@ MonoBehaviour:
   collider: {fileID: 1518866438}
   level1: {fileID: 0}
   level1Animator: {fileID: 0}
+  exitDoorAnimator: {fileID: 0}
   level2: {fileID: 0}
 --- !u!61 &1518866438
 BoxCollider2D:
@@ -26891,7 +27082,7 @@ GameObject:
   - component: {fileID: 1530867222}
   - component: {fileID: 1530867226}
   - component: {fileID: 1530867225}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LinearCamera 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26980,7 +27171,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -29527,6 +29718,7 @@ MonoBehaviour:
   collider: {fileID: 1658797139}
   level1: {fileID: 0}
   level1Animator: {fileID: 0}
+  exitDoorAnimator: {fileID: 0}
   level2: {fileID: 0}
 --- !u!95 &1658797141
 Animator:
@@ -32051,7 +32243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1768793365
 Transform:
   m_ObjectHideFlags: 0
@@ -32614,6 +32806,7 @@ MonoBehaviour:
     type: 3}
   tntVfx: {fileID: 3233711707420465066, guid: 2f8303fb751dd9641abf65aef9f6cf24, type: 3}
   porteVfxPos: {fileID: 1943134516}
+  explosionSound: {fileID: 8300000, guid: 1f6605e8324712142b34281d1676fc8d, type: 3}
 --- !u!95 &1790677156
 Animator:
   serializedVersion: 3
@@ -32777,7 +32970,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -34231,6 +34424,8 @@ MonoBehaviour:
   pelucheDialog: {fileID: 1419301864}
   tntDialog: {fileID: 1569479218}
   codeDialog: {fileID: 975411281}
+  openSound: {fileID: 8300000, guid: 4b1f441019da59a42a82ccdd07c07c5e, type: 3}
+  getItemSound: {fileID: 8300000, guid: 48397b98bccc9db45b29fbce26a36a27, type: 3}
   opened: 0
 --- !u!60 &1879237515
 PolygonCollider2D:
@@ -35673,7 +35868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1945614478
 Transform:
   m_ObjectHideFlags: 0
@@ -36686,7 +36881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993972488}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.46, y: -9.397324, z: -10}
+  m_LocalPosition: {x: 19.4, y: 22.482677, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 51663024}
@@ -37861,7 +38056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2070082224
 Transform:
   m_ObjectHideFlags: 0
@@ -37901,6 +38096,7 @@ MonoBehaviour:
   collider: {fileID: 2070082226}
   level1: {fileID: 2070082223}
   level1Animator: {fileID: 2070082227}
+  exitDoorAnimator: {fileID: 0}
   level2: {fileID: 1768793364}
 --- !u!61 &2070082226
 BoxCollider2D:
@@ -38748,6 +38944,8 @@ MonoBehaviour:
   pelucheDialog: {fileID: 1419301864}
   tntDialog: {fileID: 1569479218}
   codeDialog: {fileID: 975411281}
+  openSound: {fileID: 8300000, guid: 4b1f441019da59a42a82ccdd07c07c5e, type: 3}
+  getItemSound: {fileID: 8300000, guid: 48397b98bccc9db45b29fbce26a36a27, type: 3}
   opened: 0
 --- !u!60 &2138180050
 PolygonCollider2D:
