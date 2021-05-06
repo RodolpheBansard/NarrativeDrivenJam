@@ -6,6 +6,7 @@ public class MusicPlayer : MonoBehaviour
 {
     public AudioClip spyOnDuty;
     public AudioClip theChase;
+    public AudioClip bossMusic;
 
     public AudioSource audioSource;
 
@@ -30,6 +31,12 @@ public class MusicPlayer : MonoBehaviour
     public void playTheChase()
     {
         audioSource.clip = theChase;
+        audioSource.Play();
+    }
+
+    public void playBossMusic()
+    {
+        audioSource.clip = bossMusic;
         audioSource.Play();
     }
 }
