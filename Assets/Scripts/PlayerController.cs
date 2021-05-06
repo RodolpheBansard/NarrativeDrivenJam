@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
 
     private bool canMove = false;
-    private bool isRunning = true;
+    public bool isRunning = false;
 
     public bool hasTnt = false;
     public bool hasCard = false;

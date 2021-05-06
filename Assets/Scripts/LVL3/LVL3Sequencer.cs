@@ -34,12 +34,12 @@ public class LVL3Sequencer : MonoBehaviour
         dialogs[2].enabled = true;
         yield return new WaitForSeconds(dialogs[2].getLength());
         enemies[0].GetComponent<LinearCamera>().enabled = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
 
         dialogs[3].enabled = true;
         yield return new WaitForSeconds(dialogs[3].getLength());
         enemies[1].GetComponent<Dragon>().enabled = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         dialogs[4].enabled = true;
         yield return new WaitForSeconds(dialogs[4].getLength());
@@ -56,6 +56,11 @@ public class LVL3Sequencer : MonoBehaviour
         yield return new WaitForSeconds(dialogs[6].getLength());
 
         isconverging = true;
+
+        yield return new WaitForSeconds(5);
+        isconverging = false;
+
+        dialogs[8].enabled = true;
 
     }
 

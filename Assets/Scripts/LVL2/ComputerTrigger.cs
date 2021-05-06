@@ -58,5 +58,7 @@ public class ComputerTrigger : MonoBehaviour
         yield return new WaitForSeconds(4);
         doorAnimator.SetTrigger("open");
         transitionLevel3.SetActive(true);
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<MusicPlayer>().playTheChase();
     }
 }

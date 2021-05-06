@@ -10,6 +10,7 @@ public class RobotBehaviour : MonoBehaviour
     public List<Transform> waypoints;
     public List<string> directions;
     public float moveSpeed = 3;
+    public AudioClip caughtRobotSound;
 
     private int currentIndex = 0;
 
@@ -60,6 +61,11 @@ public class RobotBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<PlayerController>().Detected();
+        if(collision.transform.parent.gameObject.GetComponent<PlayerController>() != null || collision.gameObject.GetComponent<PlayerController>())
+        {
+            FindObjectOfType<AudioSource>().PlayOneShot(caughtRobotSound, .2f);
+            FindObjectOfType<PlayerController>().Detected();
+        }
+        
     }
 }
