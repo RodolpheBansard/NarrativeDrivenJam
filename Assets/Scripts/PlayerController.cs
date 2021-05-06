@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public bool hasTnt = false;
     public bool hasCard = false;
 
+    public AudioClip ventAudio;
+
 
 
     void Update()
@@ -109,6 +111,7 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         movement = Vector2.zero;
         camera.m_Lens.FieldOfView = 50;
+        
         yield return new WaitForSeconds(0.92f);
         transform.position = spawnpointsLvl1[currentCheckpointIndex].transform.position;        
         yield return new WaitForSeconds(1.83f);
@@ -124,8 +127,10 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         movement = Vector2.zero;
         camera.m_Lens.FieldOfView = 50;
+        FindObjectOfType<AudioSource>().PlayOneShot(ventAudio, .2f);
         yield return new WaitForSeconds(0.92f);
-        transform.position = pos.position;       
+        transform.position = pos.position;
+        FindObjectOfType<AudioSource>().PlayOneShot(ventAudio, .2f);
         yield return new WaitForSeconds(1.83f);
         camera.m_Lens.FieldOfView = 70;
         canMove = true;

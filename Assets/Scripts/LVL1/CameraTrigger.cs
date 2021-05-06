@@ -9,7 +9,7 @@ public class CameraTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.parent.gameObject.GetComponent<PlayerController>() != null || collision.gameObject.GetComponent<PlayerController>())
+        if(collision.transform.parent.gameObject.GetComponent<PlayerController>() != null || collision.gameObject.GetComponent<PlayerController>() != null)
         {
             FindObjectOfType<AudioSource>().PlayOneShot(caughtSound, .2f);
             player.Detected();
