@@ -9,6 +9,18 @@ public class MusicPlayer : MonoBehaviour
 
     public AudioSource audioSource;
 
+    private void Awake()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Start()
     {
         audioSource.clip = spyOnDuty;

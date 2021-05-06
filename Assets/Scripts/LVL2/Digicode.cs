@@ -25,11 +25,6 @@ public class Digicode : MonoBehaviour
         displayText.text = "";
     }
 
-    private void Update()
-    {
-        
-    }
-
     IEnumerator CheckInput()
     {
         if (displayText.text == solution)
@@ -61,10 +56,7 @@ public class Digicode : MonoBehaviour
     {
         FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
         displayText.text += "1";
-        if (displayText.text.Length >= 4)
-        {
-            StartCoroutine(CheckInput());
-        }
+        
     }
     public void add2()
     {

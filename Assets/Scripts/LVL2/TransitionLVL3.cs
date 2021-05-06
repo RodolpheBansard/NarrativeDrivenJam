@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class TransitionLVL3 : MonoBehaviour
     public GameObject level3;
     public LVL3Sequencer LVL3Sequencer;
 
+    public CinemachineVirtualCamera normalCamera;
+    public CinemachineVirtualCamera runningCamera;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,6 +24,8 @@ public class TransitionLVL3 : MonoBehaviour
         {
             level3.SetActive(true);
             rbPlayer.gravityScale = 100;
+            normalCamera.gameObject.SetActive(false);
+            runningCamera.gameObject.SetActive(true);
         }
     }
 
@@ -31,6 +37,7 @@ public class TransitionLVL3 : MonoBehaviour
             rbPlayer.gravityScale = 5;
             player.SetIsRunning();
             level2.SetActive(false);
+            FindObjectOfType<GameSession>().Level3();
         }
     }
 }
