@@ -17,6 +17,9 @@ public class lvl4Sequencer : MonoBehaviour
 
     public Mechadragon mechadragon;
 
+    public AudioClip fusionSound;
+    public AudioClip deathSound;
+
     private bool fusioning;
     private int compteurBossDead = 0;
 
@@ -67,7 +70,9 @@ public class lvl4Sequencer : MonoBehaviour
     {
         dragon.gameObject.GetComponent<Animator>().SetTrigger("fusion");
         robot.gameObject.GetComponent<Animator>().SetTrigger("fusion");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
+        FindObjectOfType<AudioSource>().PlayOneShot(fusionSound, 1);
+        yield return new WaitForSeconds(.5f);        
         dragon.gameObject.SetActive(false);
         robot.gameObject.SetActive(false);
         mechadragon.gameObject.SetActive(true);
@@ -76,8 +81,10 @@ public class lvl4Sequencer : MonoBehaviour
 
     IEnumerator Epilogue()
     {
+        FindObjectOfType<AudioSource>().PlayOneShot(deathSound, 1);
         player.canShoot = false;
         dialogs[3].enabled = true;
+        yield return new WaitForSeconds(2);
         FindObjectOfType<MusicPlayer>().playOurStory();
         yield return new WaitForSeconds(1);
     }

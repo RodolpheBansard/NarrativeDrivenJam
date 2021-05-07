@@ -690,8 +690,8 @@ MonoBehaviour:
   player: {fileID: 3100661718869149716}
   delayWriting: 0.03
   delayDeleting: 0.005
-  delaybeforeDeleting: 2
-  delaybeforeWriting: 0.5
+  delaybeforeDeleting: 0
+  delaybeforeWriting: 0
   story:
   - 1EN GARDE, PRINCESS !
   narrator1Text: {fileID: 44938631}
@@ -1407,6 +1407,8 @@ MonoBehaviour:
   healthBar: {fileID: 1433952178}
   maxHealth: 10
   currentHealth: 10
+  bossHurtSound: {fileID: 8300000, guid: b77fd297e11666740a9e87ae17ca7f04, type: 3}
+  fireSound: {fileID: 8300000, guid: 7db83d2e4b6ac2c4ebba9af535eb4ec1, type: 3}
 --- !u!95 &499949600
 Animator:
   serializedVersion: 3
@@ -1714,6 +1716,9 @@ MonoBehaviour:
   spawnPoint: {fileID: 1273611132}
   deathVfx: {fileID: 6689396605419053961, guid: 150c801f46554e946baf5abec852873b,
     type: 3}
+  bossHurtSound: {fileID: 8300000, guid: b77fd297e11666740a9e87ae17ca7f04, type: 3}
+  fireSound: {fileID: 8300000, guid: 7db83d2e4b6ac2c4ebba9af535eb4ec1, type: 3}
+  robotShootSound: {fileID: 8300000, guid: 30cff5b0d62bd8e4f88a7c34856eccff, type: 3}
 --- !u!95 &680724457
 Animator:
   serializedVersion: 3
@@ -2440,6 +2445,8 @@ MonoBehaviour:
   healthBar: {fileID: 1338484020}
   maxHealth: 10
   currentHealth: 10
+  bossHurtSound: {fileID: 8300000, guid: b77fd297e11666740a9e87ae17ca7f04, type: 3}
+  robotShootSound: {fileID: 8300000, guid: 30cff5b0d62bd8e4f88a7c34856eccff, type: 3}
 --- !u!212 &958361423
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3809,6 +3816,8 @@ MonoBehaviour:
   fusionVFX: {fileID: 6689396605419053961, guid: 150c801f46554e946baf5abec852873b,
     type: 3}
   mechadragon: {fileID: 680724456}
+  fusionSound: {fileID: 8300000, guid: 2ef9cd24e6f8c294ea79048fdf90e0fa, type: 3}
+  deathSound: {fileID: 8300000, guid: aef60543293f80840bff42f46e939d6d, type: 3}
 --- !u!4 &1497650600
 Transform:
   m_ObjectHideFlags: 0
@@ -3870,8 +3879,8 @@ MonoBehaviour:
   player: {fileID: 3100661718869149716}
   delayWriting: 0.03
   delayDeleting: 0.005
-  delaybeforeDeleting: 2
-  delaybeforeWriting: 0.5
+  delaybeforeDeleting: 0
+  delaybeforeWriting: 0
   story:
   - 2EN GARDE, PRINCESS !
   narrator1Text: {fileID: 0}
@@ -5527,9 +5536,11 @@ MonoBehaviour:
   hasCard: 0
   canShoot: 0
   ventAudio: {fileID: 8300000, guid: b59574a616383cd4cb23c51f7985c6c2, type: 3}
+  playerShootSound: {fileID: 8300000, guid: 5193d78fafdccc749823a7888c2cd48f, type: 3}
+  gotHitSound: {fileID: 8300000, guid: 2633c5a852d8703449610bfb0b1e66c1, type: 3}
   healthBar: {fileID: 1685351370}
-  maxHealth: 7
-  currentHealth: 7
+  maxHealth: 10
+  currentHealth: 10
   playerProjectilePrefab: {fileID: 2127777677067753023, guid: 6bddc91597c27ff498c061227aed60bc,
     type: 3}
   firePoint: {fileID: 487176801}
@@ -6261,8 +6272,8 @@ MonoBehaviour:
   player: {fileID: 3100661718869149716}
   delayWriting: 0.03
   delayDeleting: 0.005
-  delaybeforeDeleting: 2
-  delaybeforeWriting: 0.5
+  delaybeforeDeleting: 0
+  delaybeforeWriting: 0
   story:
   - "1Princess Rose was teleported to the top of the evil corporation\u2019s headquarters."
   - "1She started trembling as Dr Doominson\u2019s GigaBot stood tall in front of

@@ -14,6 +14,9 @@ public class BossDragon : MonoBehaviour
     public int maxHealth = 5;
     public int currentHealth = 0;
 
+    public AudioClip bossHurtSound;
+    public AudioClip fireSound;
+
     private int randomIndex;
 
     private int shootCompteur = 0;
@@ -51,6 +54,7 @@ public class BossDragon : MonoBehaviour
         canMove = false;
         gameObject.GetComponent<Animator>().SetTrigger("puff");
         yield return new WaitForSeconds(.6f);
+        FindObjectOfType<AudioSource>().PlayOneShot(fireSound, 1);
         GameObject bullet = Instantiate(firePrefab, shootPoint);
         bullet.transform.parent = null;
         yield return new WaitForSeconds(.4f);
@@ -72,6 +76,8 @@ public class BossDragon : MonoBehaviour
     }
     public void takeHit(int value)
     {
+        gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        FindObjectOfType<AudioSource>().PlayOneShot(bossHurtSound, 1);
         currentHealth -= value;
         healthBar.SetHealth(currentHealth);
 

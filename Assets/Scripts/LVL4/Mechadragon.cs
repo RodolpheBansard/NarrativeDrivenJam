@@ -19,6 +19,10 @@ public class Mechadragon : MonoBehaviour
     public Transform spawnPoint;
     public GameObject deathVfx;
 
+    public AudioClip bossHurtSound;
+    public AudioClip fireSound;
+    public AudioClip robotShootSound;
+
     private int randomIndex;
 
     private int shootCompteur = 0;
@@ -65,6 +69,7 @@ public class Mechadragon : MonoBehaviour
         canMove = false;
         gameObject.GetComponent<Animator>().SetTrigger("puff");
         yield return new WaitForSeconds(.6f);
+        FindObjectOfType<AudioSource>().PlayOneShot(fireSound, 1);
         GameObject bullet = Instantiate(firePrefab, firePoint);
         bullet.transform.parent = null;
         yield return new WaitForSeconds(.4f);
@@ -77,6 +82,7 @@ public class Mechadragon : MonoBehaviour
         canMove = false;
         gameObject.GetComponent<Animator>().SetTrigger("shoot");
         yield return new WaitForSeconds(.4f);
+        FindObjectOfType<AudioSource>().PlayOneShot(robotShootSound, 1);
         foreach (Transform shootpoint in shootPoints)
         {
             GameObject bullet = Instantiate(bulletPrefab, shootpoint);
@@ -102,6 +108,8 @@ public class Mechadragon : MonoBehaviour
     }
     public void takeHit(int value)
     {
+        gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        FindObjectOfType<AudioSource>().PlayOneShot(bossHurtSound, 1);
         currentHealth -= value;
         healthBar.SetHealth(currentHealth);
 

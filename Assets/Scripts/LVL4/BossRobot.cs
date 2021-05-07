@@ -14,6 +14,10 @@ public class BossRobot : MonoBehaviour
     public int maxHealth = 5;
     public int currentHealth = 0;
 
+    public AudioClip bossHurtSound;
+    public AudioClip robotShootSound;
+
+
     private int randomIndex;
 
     private int shootCompteur = 0;
@@ -56,6 +60,7 @@ public class BossRobot : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, shootpoint);
             bullet.transform.parent = null;
         }
+        FindObjectOfType<AudioSource>().PlayOneShot(robotShootSound, 1);
         yield return new WaitForSeconds(.4f);
         canMove = true;
         shootCompteur = 0;
@@ -77,6 +82,8 @@ public class BossRobot : MonoBehaviour
     }
     public void takeHit(int value)
     {
+        gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        FindObjectOfType<AudioSource>().PlayOneShot(bossHurtSound, 1);
         currentHealth -= value;
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
@@ -94,4 +101,6 @@ public class BossRobot : MonoBehaviour
     {
         canMove = true;
     }
+
+   
 }

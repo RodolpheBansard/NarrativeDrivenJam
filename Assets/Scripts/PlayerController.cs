@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip ventAudio;
 
+    public AudioClip playerShootSound;
+    public AudioClip gotHitSound;
+
     public HealthBar healthBar = null;
     public int maxHealth = 5;
     public int currentHealth=0;
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
         }
         if (canShoot && Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<lvl4Sequencer>())
         {
+            FindObjectOfType<AudioSource>().PlayOneShot(playerShootSound, 1);
             GameObject projectile = Instantiate(playerProjectilePrefab, firePoint);
             projectile.transform.parent = null;
         }
@@ -187,6 +191,8 @@ public class PlayerController : MonoBehaviour
     }
     public void takeHit(int value)
     {
+        gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        FindObjectOfType<AudioSource>().PlayOneShot(gotHitSound, 1);
         currentHealth -= value;
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
