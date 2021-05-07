@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip ventAudio;
 
+    public HealthBar healthBar = null;
+    public int maxHealth = 5;
+    public int currentHealth;    
 
 
     void Update()
@@ -166,5 +169,16 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
+
+    public void SetHealthBar()
+    {
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(maxHealth);
+    }
+    public void takeHit(int value)
+    {
+        currentHealth -= value;
+        healthBar.SetHealth(currentHealth);
+    }
 
 }

@@ -11,10 +11,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if(!collision.GetComponent<Bullet>() && collision.transform.parent.gameObject.GetComponent<PlayerController>())
+        print(collision.name);
+        if (!collision.GetComponent<Bullet>() && !collision.GetComponent<BossRobot>() && collision.transform.parent.gameObject.GetComponent<PlayerController>())
         {
-            print("touché");
+            FindObjectOfType<PlayerController>().takeHit(1);
         }
     }
 }

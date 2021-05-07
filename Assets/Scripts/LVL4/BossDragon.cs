@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossRobot : MonoBehaviour
+public class BossDragon : MonoBehaviour
 {
     public List<Transform> waypoints;
-    public List<Transform> shootPoints;
+    public Transform shootPoint;
     public float moveSpeed = 3;
 
-    public GameObject bulletPrefab;
+    public GameObject firePrefab;
 
     private int randomIndex;
 
     private int shootCompteur = 0;
     private bool canMove = true;
-    
+
 
     void Start()
     {
@@ -39,19 +39,16 @@ public class BossRobot : MonoBehaviour
                 }
 
             }
-        }        
+        }
     }
 
     IEnumerator ShootPlayer()
     {
         canMove = false;
-        gameObject.GetComponent<Animator>().SetTrigger("shoot");
-        yield return new WaitForSeconds(.4f);
-        foreach(Transform shootpoint in shootPoints)
-        {
-            GameObject bullet = Instantiate(bulletPrefab, shootpoint);
-            bullet.transform.parent = null;
-        }
+        gameObject.GetComponent<Animator>().SetTrigger("puff");
+        yield return new WaitForSeconds(.6f);
+        GameObject bullet = Instantiate(firePrefab, shootPoint);
+        bullet.transform.parent = null;
         yield return new WaitForSeconds(.4f);
         canMove = true;
         shootCompteur = 0;
@@ -59,9 +56,7 @@ public class BossRobot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (!collision.GetComponent<Bullet>() && !collision.GetComponent<BossRobot>() && collision.transform.parent.gameObject.GetComponent<PlayerController>())
-        {
+        if(collision.transform.parent.gameObject.GetComponent<PlayerController>()){
             FindObjectOfType<PlayerController>().takeHit(1);
         }
     }
