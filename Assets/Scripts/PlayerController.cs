@@ -148,10 +148,10 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         movement = Vector2.zero;
         camera.m_Lens.FieldOfView = 50;
-        FindObjectOfType<AudioSource>().PlayOneShot(ventAudio, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(ventAudio, .7f);
         yield return new WaitForSeconds(0.92f);
         transform.position = pos.position;
-        FindObjectOfType<AudioSource>().PlayOneShot(ventAudio, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(ventAudio, .7f);
         yield return new WaitForSeconds(1.83f);
         camera.m_Lens.FieldOfView = 70;
         canMove = true;

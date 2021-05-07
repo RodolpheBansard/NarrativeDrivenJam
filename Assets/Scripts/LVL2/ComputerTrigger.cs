@@ -69,11 +69,11 @@ public class ComputerTrigger : MonoBehaviour
         
         revealRobotDialog.enabled = true;
         yield return new WaitForSeconds(2);
-        FindObjectOfType<AudioSource>().PlayOneShot(openDoorSound, .3f);
+        FindObjectOfType<AudioSource>().PlayOneShot(openDoorSound, .8f);
         doorAnimator.SetTrigger("open");
         transitionLevel3.SetActive(true);
         yield return new WaitForSeconds(1);
-        FindObjectOfType<AudioSource>().PlayOneShot(robotRoarSound, 2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(robotRoarSound, 8f);
         yield return new WaitForSeconds(1.5f);
         FindObjectOfType<MusicPlayer>().playTheChase();
     }

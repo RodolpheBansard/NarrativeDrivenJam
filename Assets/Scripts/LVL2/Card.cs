@@ -23,7 +23,7 @@ public class Card : MonoBehaviour
             card.SetActive(true);
             collision.GetComponent<PlayerController>().hasCard = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            FindObjectOfType<AudioSource>().PlayOneShot(getItemSound, .2f);
+            FindObjectOfType<AudioSource>().PlayOneShot(getItemSound, .8f);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }

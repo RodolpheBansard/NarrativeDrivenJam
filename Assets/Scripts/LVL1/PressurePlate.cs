@@ -14,7 +14,7 @@ public class PressurePlate : MonoBehaviour
     {
         if(collision.GetComponent<PlayerController>() != null)
         {
-            FindObjectOfType<AudioSource>().PlayOneShot(clickAudio, .2f);
+            FindObjectOfType<AudioSource>().PlayOneShot(clickAudio, .7f);
             gameObject.GetComponent<SpriteRenderer>().sprite = spriteClicked;
             foreach (GameObject laser in lasers)
             {

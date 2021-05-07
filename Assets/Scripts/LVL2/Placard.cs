@@ -51,7 +51,7 @@ public class Placard : MonoBehaviour
             ResetDialog();
             opened = true;
             animator.SetTrigger("openDoor");
-            FindObjectOfType<AudioSource>().PlayOneShot(openSound, .35f);
+            FindObjectOfType<AudioSource>().PlayOneShot(openSound, .8f);
             sprite.gameObject.SetActive(false);
             int compteur = 0;
             foreach(Placard placard in FindObjectsOfType<Placard>())
@@ -105,7 +105,7 @@ public class Placard : MonoBehaviour
     IEnumerator FindItem(GameObject item)
     {
         yield return new WaitForSeconds(.3f);
-        FindObjectOfType<AudioSource>().PlayOneShot(getItemSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(getItemSound, .7f);
         item.SetActive(true);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class lvl4Sequencer : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class lvl4Sequencer : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<MusicPlayer>().playBossMusic();
         player.GetComponent<Animator>().SetBool("level4", true);
         player.SetHealthBar();
         StartCoroutine(SpawnBosses());
@@ -82,11 +84,12 @@ public class lvl4Sequencer : MonoBehaviour
     IEnumerator Epilogue()
     {
         FindObjectOfType<AudioSource>().PlayOneShot(deathSound, 1);
-        player.canShoot = false;
-        dialogs[3].enabled = true;
+        player.canShoot = false;        
         yield return new WaitForSeconds(2);
+        dialogs[3].enabled = true;
         FindObjectOfType<MusicPlayer>().playOurStory();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(dialogs[3].getLength() + 2);
+        SceneManager.LoadScene(2);
     }
 
     public void BossDead()

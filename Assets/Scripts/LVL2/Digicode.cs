@@ -30,7 +30,7 @@ public class Digicode : MonoBehaviour
         if (displayText.text == solution)
         {
             displayText.color = Color.green;
-            FindObjectOfType<AudioSource>().PlayOneShot(rightCodeSound, .2f);
+            FindObjectOfType<AudioSource>().PlayOneShot(rightCodeSound, .7f);
             codeDialog.enabled = true;
             yield return new WaitForSeconds(7);
             foreach(GameObject placard in placards)
@@ -43,7 +43,7 @@ public class Digicode : MonoBehaviour
         }        
         else
         {
-            FindObjectOfType<AudioSource>().PlayOneShot(wrongCodeSound, .2f);
+            FindObjectOfType<AudioSource>().PlayOneShot(wrongCodeSound, .7f);
             displayText.color = Color.red; 
             yield return new WaitForSeconds(2);
             displayText.text = "";
@@ -54,13 +54,13 @@ public class Digicode : MonoBehaviour
 
     public void add1()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "1";
         
     }
     public void add2()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "2";
         if (displayText.text.Length >= 4)
         {
@@ -69,7 +69,7 @@ public class Digicode : MonoBehaviour
     }
     public void add3()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "3";
         if (displayText.text.Length >= 4)
         {
@@ -78,7 +78,7 @@ public class Digicode : MonoBehaviour
     }
     public void add4()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "4";
         if (displayText.text.Length >= 4)
         {
@@ -87,7 +87,7 @@ public class Digicode : MonoBehaviour
     }
     public void add5()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "5";
         if (displayText.text.Length >= 4)
         {
@@ -96,7 +96,7 @@ public class Digicode : MonoBehaviour
     }
     public void add6()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "6";
         if (displayText.text.Length >= 4)
         {
@@ -105,7 +105,7 @@ public class Digicode : MonoBehaviour
     }
     public void add7()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "7";
         if (displayText.text.Length >= 4)
         {
@@ -114,7 +114,7 @@ public class Digicode : MonoBehaviour
     }
     public void add8()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "8";
         if (displayText.text.Length >= 4)
         {
@@ -123,7 +123,7 @@ public class Digicode : MonoBehaviour
     }
     public void add9()
     {
-        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .2f);
+        FindObjectOfType<AudioSource>().PlayOneShot(buttonSound, .7f);
         displayText.text += "9";
         if (displayText.text.Length >= 4)
         {

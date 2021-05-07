@@ -63,7 +63,7 @@ public class RobotBehaviour : MonoBehaviour
     {
         if(collision.transform.parent.gameObject.GetComponent<PlayerController>() != null || collision.gameObject.GetComponent<PlayerController>())
         {
-            FindObjectOfType<AudioSource>().PlayOneShot(caughtRobotSound, .2f);
+            FindObjectOfType<AudioSource>().PlayOneShot(caughtRobotSound, .7f);
             FindObjectOfType<PlayerController>().Detected();
         }
         

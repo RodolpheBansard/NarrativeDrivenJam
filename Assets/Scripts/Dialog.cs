@@ -17,9 +17,12 @@ public class Dialog : MonoBehaviour
     public TMP_Text narrator2Text = null;
     public TMP_Text narrator3Text = null;
 
+    public AudioClip dialogSound = null;
+
     
     void Start()
     {
+        FindObjectOfType<AudioSource>().PlayOneShot(dialogSound, .8f);
         if(narrator1Text != null)
         {
             narrator1Text.text = "";

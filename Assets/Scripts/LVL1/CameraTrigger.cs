@@ -11,7 +11,7 @@ public class CameraTrigger : MonoBehaviour
     {
         if(collision.transform.parent.gameObject.GetComponent<PlayerController>() != null || collision.gameObject.GetComponent<PlayerController>() != null)
         {
-            FindObjectOfType<AudioSource>().PlayOneShot(caughtSound, .2f);
+            FindObjectOfType<AudioSource>().PlayOneShot(caughtSound, .7f);
             player.Detected();
         }
         

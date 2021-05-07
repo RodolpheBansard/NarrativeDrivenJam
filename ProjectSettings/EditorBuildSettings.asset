@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Joy Studio.unity
+    guid: 0ace0191e9d41954a8c9568765684f6d
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 6a3885ca66ae53e498985cf9b6009218
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Level4.unity
     guid: 61cc11a9bebd1334e811461adb0d4501
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 4da792caa282418429cc6606de962a94
   m_configObjects: {}

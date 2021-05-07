@@ -516,6 +516,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1608955523}
   narrator2Text: {fileID: 416724395}
   narrator3Text: {fileID: 1840925716}
+  dialogSound: {fileID: 0}
 --- !u!1 &31034548
 GameObject:
   m_ObjectHideFlags: 0
@@ -5650,6 +5651,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1881154245}
   narrator2Text: {fileID: 0}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 8300000, guid: 055c13fdb2903e747b190aeaad617468, type: 3}
 --- !u!1 &318402041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5705,6 +5707,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1551922794}
   narrator2Text: {fileID: 99641587}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &319512248
 GameObject:
   m_ObjectHideFlags: 0
@@ -6640,7 +6643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &356170604
 Transform:
   m_ObjectHideFlags: 0
@@ -7308,6 +7311,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 325372656}
   narrator2Text: {fileID: 1032331990}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &379713027
 GameObject:
   m_ObjectHideFlags: 0
@@ -7752,6 +7756,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 2128612889}
   narrator2Text: {fileID: 1641960904}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &396983634
 GameObject:
   m_ObjectHideFlags: 0
@@ -7837,6 +7842,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1435724546}
   narrator2Text: {fileID: 731505084}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &413099896
 GameObject:
   m_ObjectHideFlags: 0
@@ -11053,6 +11059,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1247706162}
   narrator2Text: {fileID: 1959173728}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &600632350
 GameObject:
   m_ObjectHideFlags: 0
@@ -11108,6 +11115,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 980113835}
   narrator2Text: {fileID: 602653875}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &602653873
 GameObject:
   m_ObjectHideFlags: 0
@@ -11720,6 +11728,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1685194021}
   narrator2Text: {fileID: 1583643274}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &626326698
 GameObject:
   m_ObjectHideFlags: 0
@@ -12482,6 +12491,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1843044047}
   narrator2Text: {fileID: 0}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &721182615
 GameObject:
   m_ObjectHideFlags: 0
@@ -16668,6 +16678,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 610465434}
   narrator2Text: {fileID: 1917473955}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &976867411
 GameObject:
   m_ObjectHideFlags: 0
@@ -18762,6 +18773,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1178470952}
   narrator2Text: {fileID: 1261148350}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &1093545568
 GameObject:
   m_ObjectHideFlags: 0
@@ -20575,7 +20587,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c2c5b55f7f343346b079e02807e7239, type: 2}
-  m_sharedMaterial: {fileID: 8184280373403210454, guid: d4e0fa94bb4648840be990b74b3cdaa2,
+  m_sharedMaterial: {fileID: -3859117100559206406, guid: 1c2c5b55f7f343346b079e02807e7239,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -20600,8 +20612,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.7
-  m_fontSizeBase: 0.7
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -20639,7 +20651,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1178470953
@@ -20754,6 +20766,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 494095373}
   narrator2Text: {fileID: 236791669}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &1197948818
 GameObject:
   m_ObjectHideFlags: 0
@@ -21304,6 +21317,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 727793999}
   narrator2Text: {fileID: 1697626375}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &1240884921
 GameObject:
   m_ObjectHideFlags: 0
@@ -22027,7 +22041,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 655f47ae2146cc34ea7b17dceeb072cb, type: 2}
-  m_sharedMaterial: {fileID: 2232542990853585189, guid: 34b5a150a166e274aabac5dea866162e,
+  m_sharedMaterial: {fileID: -7232202345308328365, guid: 655f47ae2146cc34ea7b17dceeb072cb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -23943,6 +23957,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1476467275}
   narrator2Text: {fileID: 1909693696}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &1425369861
 GameObject:
   m_ObjectHideFlags: 0
@@ -24422,6 +24437,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 592177451}
   narrator2Text: {fileID: 847367805}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &1441876726
 GameObject:
   m_ObjectHideFlags: 0
@@ -26329,6 +26345,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 820463949}
   narrator2Text: {fileID: 466208683}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &1497534970
 GameObject:
   m_ObjectHideFlags: 0
@@ -27456,6 +27473,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 293165964}
   narrator2Text: {fileID: 1095534017}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &1576269895
 GameObject:
   m_ObjectHideFlags: 0
@@ -31885,7 +31903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1768793365
 Transform:
   m_ObjectHideFlags: 0
@@ -34032,7 +34050,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c2c5b55f7f343346b079e02807e7239, type: 2}
-  m_sharedMaterial: {fileID: 8184280373403210454, guid: d4e0fa94bb4648840be990b74b3cdaa2,
+  m_sharedMaterial: {fileID: -3859117100559206406, guid: 1c2c5b55f7f343346b079e02807e7239,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -34057,8 +34075,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.7
-  m_fontSizeBase: 0.7
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34096,7 +34114,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1881154246
@@ -37329,7 +37347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2070082224
 Transform:
   m_ObjectHideFlags: 0
@@ -37994,6 +38012,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 211492911}
   narrator2Text: {fileID: 547291616}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &2128612887
 GameObject:
   m_ObjectHideFlags: 0
@@ -38723,12 +38742,12 @@ PrefabInstance:
     - target: {fileID: 3100661718586220477, guid: 33470ec71bd07844fab7111f9e61062d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.57
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3100661718586220477, guid: 33470ec71bd07844fab7111f9e61062d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.7
+      value: 14.2
       objectReference: {fileID: 0}
     - target: {fileID: 3100661718586220477, guid: 33470ec71bd07844fab7111f9e61062d,
         type: 3}
@@ -38781,8 +38800,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4304651635927437230, guid: 356b646ad180ed64fa50bf0106f4674e,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304651635927437230, guid: 356b646ad180ed64fa50bf0106f4674e,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.7
+      value: 14.2
       objectReference: {fileID: 0}
     - target: {fileID: 4304651636862471737, guid: 356b646ad180ed64fa50bf0106f4674e,
         type: 3}
@@ -38851,8 +38875,13 @@ PrefabInstance:
       objectReference: {fileID: 480991185}
     - target: {fileID: 4304651637343338976, guid: 356b646ad180ed64fa50bf0106f4674e,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304651637343338976, guid: 356b646ad180ed64fa50bf0106f4674e,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.7
+      value: 14.2
       objectReference: {fileID: 0}
     - target: {fileID: 4304651637343338977, guid: 356b646ad180ed64fa50bf0106f4674e,
         type: 3}
@@ -38868,6 +38897,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4830157804893153864, guid: 51925e6aeb1df944e9fdb26e9edfd835,
+        type: 3}
+      propertyPath: theChase
+      value: 
+      objectReference: {fileID: 8300000, guid: 587576f1480f77e43bd8631ef0f0d800, type: 3}
+    - target: {fileID: 4830157804893153864, guid: 51925e6aeb1df944e9fdb26e9edfd835,
+        type: 3}
+      propertyPath: spyOnDuty
+      value: 
+      objectReference: {fileID: 8300000, guid: 752c411bdfbc8da40a9fbd60c2af677b, type: 3}
     - target: {fileID: 4830157804893153867, guid: 51925e6aeb1df944e9fdb26e9edfd835,
         type: 3}
       propertyPath: m_Name
