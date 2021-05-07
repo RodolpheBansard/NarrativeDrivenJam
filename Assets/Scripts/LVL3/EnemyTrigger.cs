@@ -9,7 +9,7 @@ public class EnemyTrigger : MonoBehaviour
     {
         if (collision.transform.parent.gameObject.GetComponent<PlayerController>() != null || collision.gameObject.GetComponent<PlayerController>() != null)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
     }
 }

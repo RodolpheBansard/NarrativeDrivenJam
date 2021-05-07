@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -690,13 +690,14 @@ MonoBehaviour:
   player: {fileID: 3100661718869149716}
   delayWriting: 0.03
   delayDeleting: 0.005
-  delaybeforeDeleting: 0
-  delaybeforeWriting: 0
+  delaybeforeDeleting: 2
+  delaybeforeWriting: 0.5
   story:
   - 1EN GARDE, PRINCESS !
   narrator1Text: {fileID: 44938631}
   narrator2Text: {fileID: 0}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &308025271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,6 +2103,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 1346122781}
   narrator2Text: {fileID: 868551633}
   narrator3Text: {fileID: 1788748639}
+  dialogSound: {fileID: 0}
 --- !u!1 &831963873
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,13 +3881,14 @@ MonoBehaviour:
   player: {fileID: 3100661718869149716}
   delayWriting: 0.03
   delayDeleting: 0.005
-  delaybeforeDeleting: 0
-  delaybeforeWriting: 0
+  delaybeforeDeleting: 2
+  delaybeforeWriting: 0.5
   story:
   - 2EN GARDE, PRINCESS !
   narrator1Text: {fileID: 0}
   narrator2Text: {fileID: 405000042}
   narrator3Text: {fileID: 0}
+  dialogSound: {fileID: 0}
 --- !u!1 &1612251178
 GameObject:
   m_ObjectHideFlags: 0
@@ -6272,8 +6275,8 @@ MonoBehaviour:
   player: {fileID: 3100661718869149716}
   delayWriting: 0.03
   delayDeleting: 0.005
-  delaybeforeDeleting: 0
-  delaybeforeWriting: 0
+  delaybeforeDeleting: 2
+  delaybeforeWriting: 0.5
   story:
   - "1Princess Rose was teleported to the top of the evil corporation\u2019s headquarters."
   - "1She started trembling as Dr Doominson\u2019s GigaBot stood tall in front of
@@ -6286,6 +6289,7 @@ MonoBehaviour:
   narrator1Text: {fileID: 6343294428523678437}
   narrator2Text: {fileID: 6343294429548136909}
   narrator3Text: {fileID: 6343294428282794098}
+  dialogSound: {fileID: 0}
 --- !u!1 &6343294429693183942
 GameObject:
   m_ObjectHideFlags: 0

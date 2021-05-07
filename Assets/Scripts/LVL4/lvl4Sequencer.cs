@@ -37,6 +37,11 @@ public class lvl4Sequencer : MonoBehaviour
 
     private void Update()
     {
+        if (!FindObjectOfType<MusicPlayer>().isPlayingBossMusic)
+        {
+            FindObjectOfType<MusicPlayer>().playBossMusic();
+        }
+
         if (fusioning)
         {
             dragon.transform.position = Vector2.MoveTowards(dragon.transform.position,fusionPoint.position,Time.deltaTime * 5);
@@ -89,7 +94,7 @@ public class lvl4Sequencer : MonoBehaviour
         dialogs[3].enabled = true;
         FindObjectOfType<MusicPlayer>().playOurStory();
         yield return new WaitForSeconds(dialogs[3].getLength() + 2);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
 
     public void BossDead()

@@ -9,6 +9,8 @@ public class MusicPlayer : MonoBehaviour
     public AudioClip bossMusic;
     public AudioClip ourStoryMusic;
 
+    public bool isPlayingBossMusic = false;
+
     public AudioSource audioSource;
 
     private void Awake()
@@ -38,6 +40,7 @@ public class MusicPlayer : MonoBehaviour
     public void playBossMusic()
     {
         audioSource.clip = bossMusic;
+        isPlayingBossMusic = true;
         audioSource.Play();
     }
 

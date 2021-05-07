@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LVL3Sequencer : MonoBehaviour
 {
@@ -33,7 +34,6 @@ public class LVL3Sequencer : MonoBehaviour
         yield return new WaitForSeconds(dialogs[1].getLength());
         dragonContainer.SetActive(true);
         yield return new WaitForSeconds(5);
-        
 
         dialogs[2].enabled = true;
         yield return new WaitForSeconds(dialogs[2].getLength());
@@ -83,10 +83,17 @@ public class LVL3Sequencer : MonoBehaviour
         
         FindObjectOfType<PlayerController>().isRunning = false;
         FindObjectOfType<PlayerController>().GetComponent<Animator>().SetBool("isRunning", false);
-        FindObjectOfType<PlayerController>().GetComponent<Animator>().SetBool("level4", false);
-
+        foreach (RepeatingBackground repeating in FindObjectsOfType<RepeatingBackground>())
+        {
+            repeating.enabled = false;
+        }
         dialogs[8].enabled = true;
+        FindObjectOfType<MusicPlayer>().playOurStory();
 
+        yield return new WaitForSeconds(dialogs[8].getLength()/2 + 10);
+        FindObjectOfType<PlayerController>().GetComponent<Animator>().SetBool("level4", true);
+        yield return new WaitForSeconds(dialogs[8].getLength() / 2 - 10);
+        SceneManager.LoadScene(3);
     }
 
     private void Update()
