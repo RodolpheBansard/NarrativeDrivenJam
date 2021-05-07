@@ -7,6 +7,8 @@ public class LVL3Sequencer : MonoBehaviour
     public List<GameObject> enemies;
     public List<Dialog> dialogs;
 
+    public List<Sprite> flowersSprite;
+
     public GameObject robotContainer;
     public GameObject dragonContainer;
 
@@ -25,11 +27,13 @@ public class LVL3Sequencer : MonoBehaviour
         yield return new WaitForSeconds(dialogs[0].getLength());
         robotContainer.SetActive(true);
         yield return new WaitForSeconds(5);
+        foreach(Transform robot in robotContainer.transform)
 
         dialogs[1].enabled = true;
         yield return new WaitForSeconds(dialogs[1].getLength());
         dragonContainer.SetActive(true);
         yield return new WaitForSeconds(5);
+        
 
         dialogs[2].enabled = true;
         yield return new WaitForSeconds(dialogs[2].getLength());
@@ -59,6 +63,27 @@ public class LVL3Sequencer : MonoBehaviour
 
         yield return new WaitForSeconds(5);
         isconverging = false;
+
+        foreach (Transform robot in robotContainer.transform)
+        {
+            if (robot.gameObject.GetComponent<SpriteRenderer>())
+            {
+                robot.gameObject.GetComponent<Animator>().enabled = false;
+                robot.gameObject.GetComponent<SpriteRenderer>().sprite = flowersSprite[0];
+            }
+        }
+        foreach (Transform dragon in dragonContainer.transform)
+        {
+            if (dragon.gameObject.GetComponent<SpriteRenderer>())
+            {
+                dragon.gameObject.GetComponent<Animator>().enabled = false;
+                dragon.gameObject.GetComponent<SpriteRenderer>().sprite = flowersSprite[0];
+            }
+        }
+        
+        FindObjectOfType<PlayerController>().isRunning = false;
+        FindObjectOfType<PlayerController>().GetComponent<Animator>().SetBool("isRunning", false);
+        FindObjectOfType<PlayerController>().GetComponent<Animator>().SetBool("level4", false);
 
         dialogs[8].enabled = true;
 

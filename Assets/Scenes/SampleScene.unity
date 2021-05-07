@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4455,6 +4455,10 @@ MonoBehaviour:
   - {fileID: 593721617}
   - {fileID: 368360065}
   - {fileID: 28015522}
+  flowersSprite:
+  - {fileID: 21300000, guid: e456d1be6d8a4cc4dab98a9bfd1882a9, type: 3}
+  - {fileID: 21300000, guid: f80faab5862f5c2458fe077bf220c9c3, type: 3}
+  - {fileID: 21300000, guid: af7fa9f54a601224a90803765924cf02, type: 3}
   robotContainer: {fileID: 1012381770}
   dragonContainer: {fileID: 1427545339}
 --- !u!1 &236791667
@@ -6636,7 +6640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &356170604
 Transform:
   m_ObjectHideFlags: 0
@@ -13566,7 +13570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &771912699
 Transform:
   m_ObjectHideFlags: 0
@@ -19975,7 +19979,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0547266, y: 1.3340762}
+  m_Size: {x: 1.3524591, y: 1.3340762}
   m_EdgeRadius: 0
 --- !u!1 &1161132718
 GameObject:
@@ -38724,7 +38728,7 @@ PrefabInstance:
     - target: {fileID: 3100661718586220477, guid: 33470ec71bd07844fab7111f9e61062d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.91
+      value: 17.7
       objectReference: {fileID: 0}
     - target: {fileID: 3100661718586220477, guid: 33470ec71bd07844fab7111f9e61062d,
         type: 3}
@@ -38775,6 +38779,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4304651635927437230, guid: 356b646ad180ed64fa50bf0106f4674e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4304651636862471737, guid: 356b646ad180ed64fa50bf0106f4674e,
         type: 3}
       propertyPath: m_Name
@@ -38840,6 +38849,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 480991185}
+    - target: {fileID: 4304651637343338976, guid: 356b646ad180ed64fa50bf0106f4674e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4304651637343338977, guid: 356b646ad180ed64fa50bf0106f4674e,
         type: 3}
       propertyPath: m_Follow

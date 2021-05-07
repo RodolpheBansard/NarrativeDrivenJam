@@ -28,7 +28,10 @@ public class PlayerController : MonoBehaviour
 
     public HealthBar healthBar = null;
     public int maxHealth = 5;
-    public int currentHealth;    
+    public int currentHealth=0;
+
+    public GameObject playerProjectilePrefab=null;
+    public Transform firePoint=null;
 
 
     void Update()
@@ -70,6 +73,11 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isSliding", false);
             }
 
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<lvl4Sequencer>())
+        {
+            GameObject projectile = Instantiate(playerProjectilePrefab, firePoint);
+            projectile.transform.parent = null;
         }
 
     }

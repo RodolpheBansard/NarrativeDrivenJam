@@ -10,10 +10,15 @@ public class BossDragon : MonoBehaviour
 
     public GameObject firePrefab;
 
+    public HealthBar healthBar = null;
+    public int maxHealth = 5;
+    public int currentHealth = 0;
+
     private int randomIndex;
 
     private int shootCompteur = 0;
     private bool canMove = true;
+    private bool dead = false;
 
 
     void Start()
@@ -25,7 +30,7 @@ public class BossDragon : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
+        if (canMove && !dead)
         {
             transform.position = Vector2.MoveTowards(transform.position, waypoints[randomIndex].position, moveSpeed * Time.deltaTime);
 
@@ -33,7 +38,7 @@ public class BossDragon : MonoBehaviour
             {
                 randomIndex = Random.Range(0, waypoints.Count - 1);
                 shootCompteur++;
-                if (shootCompteur == 3)
+                if (shootCompteur == 2)
                 {
                     StartCoroutine(ShootPlayer());
                 }
@@ -56,8 +61,25 @@ public class BossDragon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.parent.gameObject.GetComponent<PlayerController>()){
+        if(!collision.GetComponent<PlayerProjectile>() && collision.transform.parent.gameObject.GetComponent<PlayerController>()){
             FindObjectOfType<PlayerController>().takeHit(1);
+        }
+    }
+
+    public void SetHealthBar()
+    {
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(maxHealth);
+    }
+    public void takeHit(int value)
+    {
+        currentHealth -= value;
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("dead");
+            dead = true;
         }
     }
 }

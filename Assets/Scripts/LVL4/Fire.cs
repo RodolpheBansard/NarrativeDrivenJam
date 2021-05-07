@@ -19,8 +19,7 @@ public class Fire : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.name);
-        if(collision.transform.parent.gameObject.GetComponent<PlayerController>()){
+        if(!collision.GetComponent<PlayerProjectile>() && collision.transform.parent.gameObject.GetComponent<PlayerController>()){
 
             FindObjectOfType<PlayerController>().takeHit(2);
         }

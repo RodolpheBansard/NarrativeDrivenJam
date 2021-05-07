@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossRobot : MonoBehaviour
+public class Mechadragon : MonoBehaviour
 {
     public List<Transform> waypoints;
     public List<Transform> shootPoints;
-    public float moveSpeed = 3;
+    public Transform firePoint;
+    public float moveSpeed = 6;
 
+    public GameObject firePrefab;
     public GameObject bulletPrefab;
 
     public HealthBar healthBar = null;
@@ -31,7 +33,7 @@ public class BossRobot : MonoBehaviour
     void Update()
     {
         if (canMove && !dead)
-        {
+        {            
             transform.position = Vector2.MoveTowards(transform.position, waypoints[randomIndex].position, moveSpeed * Time.deltaTime);
 
             if (transform.position == waypoints[randomIndex].position)
@@ -40,11 +42,31 @@ public class BossRobot : MonoBehaviour
                 shootCompteur++;
                 if (shootCompteur == 2)
                 {
-                    StartCoroutine(ShootPlayer());
+                    int randomNumber = Random.Range(0, 2);
+                    if (randomNumber == 0)
+                    {
+                        StartCoroutine(FireToPlayer());
+                    }
+                    else if(randomNumber == 1)
+                    {
+                        StartCoroutine(ShootPlayer());
+                    }
                 }
 
             }
-        }        
+        }
+    }
+
+    IEnumerator FireToPlayer()
+    {
+        canMove = false;
+        gameObject.GetComponent<Animator>().SetTrigger("puff");
+        yield return new WaitForSeconds(.6f);
+        GameObject bullet = Instantiate(firePrefab, firePoint);
+        bullet.transform.parent = null;
+        yield return new WaitForSeconds(.4f);
+        canMove = true;
+        shootCompteur = 0;
     }
 
     IEnumerator ShootPlayer()
@@ -52,7 +74,7 @@ public class BossRobot : MonoBehaviour
         canMove = false;
         gameObject.GetComponent<Animator>().SetTrigger("shoot");
         yield return new WaitForSeconds(.4f);
-        foreach(Transform shootpoint in shootPoints)
+        foreach (Transform shootpoint in shootPoints)
         {
             GameObject bullet = Instantiate(bulletPrefab, shootpoint);
             bullet.transform.parent = null;
@@ -64,8 +86,7 @@ public class BossRobot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (!collision.GetComponent<PlayerProjectile>() && !collision.GetComponent<Bullet>() && !collision.GetComponent<BossRobot>() && collision.transform.parent.gameObject.GetComponent<PlayerController>())
+        if (!collision.GetComponent<Bullet>() && !collision.GetComponent<Mechadragon>() && !collision.GetComponent<PlayerProjectile>() && collision.transform.parent.gameObject.GetComponent<PlayerController>())
         {
             FindObjectOfType<PlayerController>().takeHit(1);
         }
@@ -80,9 +101,10 @@ public class BossRobot : MonoBehaviour
     {
         currentHealth -= value;
         healthBar.SetHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
-            //gameObject.GetComponent<Animator>().SetTrigger("dead");
+            gameObject.GetComponent<Animator>().SetTrigger("dead");
             dead = true;
         }
     }
