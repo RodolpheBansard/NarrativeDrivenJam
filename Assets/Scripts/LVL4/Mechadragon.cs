@@ -16,6 +16,8 @@ public class Mechadragon : MonoBehaviour
     public int maxHealth = 5;
     public int currentHealth = 0;
 
+    public Transform spawnPoint;
+
     private int randomIndex;
 
     private int shootCompteur = 0;
@@ -25,8 +27,8 @@ public class Mechadragon : MonoBehaviour
 
     void Start()
     {
-        randomIndex = Random.Range(0, waypoints.Count - 1);
-        transform.position = waypoints[randomIndex].position;
+
+        transform.position = spawnPoint.position;
     }
 
 

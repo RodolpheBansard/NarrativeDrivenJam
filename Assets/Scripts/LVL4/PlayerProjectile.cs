@@ -21,17 +21,14 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<BossDragon>())
         {
-            print("dragon touché");
             collision.gameObject.GetComponent<BossDragon>().takeHit(1);
         }
         if (collision.gameObject.GetComponent<BossRobot>())
         {
-            print("robot touché");
             collision.gameObject.GetComponent<BossRobot>().takeHit(1);
         }
         if (collision.gameObject.GetComponent<Mechadragon>())
         {
-            print("mechadragon touché");
             collision.gameObject.GetComponent<Mechadragon>().takeHit(1);
         }
     }

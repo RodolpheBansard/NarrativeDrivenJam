@@ -17,14 +17,13 @@ public class BossDragon : MonoBehaviour
     private int randomIndex;
 
     private int shootCompteur = 0;
-    private bool canMove = true;
+    private bool canMove = false;
     private bool dead = false;
 
 
     void Start()
     {
-        randomIndex = Random.Range(0, waypoints.Count - 1);
-        transform.position = waypoints[randomIndex].position;
+        transform.position = waypoints[3].position;
     }
 
 
@@ -79,7 +78,17 @@ public class BossDragon : MonoBehaviour
         if (currentHealth <= 0)
         {
             gameObject.GetComponent<Animator>().SetTrigger("dead");
+            if (!dead)
+            {
+                FindObjectOfType<lvl4Sequencer>().BossDead();
+            }
             dead = true;
+            
         }
+    }
+
+    public void Move()
+    {
+        canMove = true;
     }
 }
