@@ -59,6 +59,7 @@ public class lvl4Sequencer : MonoBehaviour
         yield return new WaitForSeconds(dialogs[1].getLength());
         dragon.Move();
         robot.Move();
+        player.canShoot = true;
 
     }
 
@@ -70,10 +71,14 @@ public class lvl4Sequencer : MonoBehaviour
         dragon.gameObject.SetActive(false);
         robot.gameObject.SetActive(false);
         mechadragon.gameObject.SetActive(true);
+       
     }
 
     IEnumerator Epilogue()
     {
+        player.canShoot = false;
+        dialogs[3].enabled = true;
+        FindObjectOfType<MusicPlayer>().playOurStory();
         yield return new WaitForSeconds(1);
     }
 
@@ -84,5 +89,10 @@ public class lvl4Sequencer : MonoBehaviour
         {
             fusioning = true;
         }
+    }
+
+    public void StartEpilogue()
+    {
+        StartCoroutine(Epilogue());
     }
 }

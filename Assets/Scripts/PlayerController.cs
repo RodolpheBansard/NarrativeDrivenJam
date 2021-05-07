@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,11 +19,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movement;
 
-    private bool canMove = false;
+    public bool canMove = false;
     public bool isRunning = false;
 
     public bool hasTnt = false;
     public bool hasCard = false;
+    public bool canShoot = false;
 
     public AudioClip ventAudio;
 
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<lvl4Sequencer>())
+        if (canShoot && Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<lvl4Sequencer>())
         {
             GameObject projectile = Instantiate(playerProjectilePrefab, firePoint);
             projectile.transform.parent = null;
@@ -187,6 +189,17 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= value;
         healthBar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            StartCoroutine(DeathLevel4());
+        }
+    }
+
+    IEnumerator DeathLevel4()
+    {
+        gameObject.GetComponent<Animator>().SetTrigger("death");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(1);
     }
 
 }

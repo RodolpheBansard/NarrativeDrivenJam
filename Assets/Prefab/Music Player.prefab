@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec210fc2f34abf43a6a5a570a1d1b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spyOnDuty: {fileID: 8300000, guid: 752c411bdfbc8da40a9fbd60c2af677b, type: 3}
-  theChase: {fileID: 8300000, guid: 587576f1480f77e43bd8631ef0f0d800, type: 3}
+  spyOnDuty: {fileID: 8300000, guid: 23f1e115170be8b47ae78fc84a164f65, type: 3}
+  theChase: {fileID: 8300000, guid: 23f1e115170be8b47ae78fc84a164f65, type: 3}
+  bossMusic: {fileID: 8300000, guid: 23f1e115170be8b47ae78fc84a164f65, type: 3}
+  ourStoryMusic: {fileID: 8300000, guid: 5b7d1fd49a1f08b4cb54e7f4c3ce79f2, type: 3}
   audioSource: {fileID: 4830157804893153865}

@@ -17,6 +17,7 @@ public class Mechadragon : MonoBehaviour
     public int currentHealth = 0;
 
     public Transform spawnPoint;
+    public GameObject deathVfx;
 
     private int randomIndex;
 
@@ -108,6 +109,10 @@ public class Mechadragon : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetTrigger("dead");
             dead = true;
+            GameObject vfx =  Instantiate(deathVfx, transform);
+            vfx.transform.parent = null;
+            Destroy(gameObject, .2f);
+            FindObjectOfType<lvl4Sequencer>().StartEpilogue();
         }
     }
 }
